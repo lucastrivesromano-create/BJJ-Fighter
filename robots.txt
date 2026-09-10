@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://lucastrivesromano-create.github.io/BJJ-Fighter/sitemap.xml
