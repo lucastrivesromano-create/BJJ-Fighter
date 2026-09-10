@@ -1,265 +1,867 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BJJ-Fighter</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<title>BJJ-Fighter | Brazilian Jiu-Jitsu & MMA</title>
 
-        body {
-            font-family: Arial, sans-serif;
-            background: #0b0b0b;
-            color: white;
-        }
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        header {
-            background: #111;
-            padding: 20px;
-            text-align: center;
-            border-bottom: 2px solid #333;
-        }
+html {
+    scroll-behavior: smooth;
+}
 
-        header h1 {
-            font-size: 40px;
-            letter-spacing: 2px;
-        }
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #080808;
+    color: #fff;
+    line-height: 1.6;
+}
 
-        header p {
-            color: #aaa;
-            margin-top: 8px;
-        }
+/* HEADER */
 
-        nav {
-            background: #181818;
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 10px;
-            padding: 15px;
-        }
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(8,8,8,0.96);
+    border-bottom: 1px solid #292929;
+}
 
-        nav a {
-            color: white;
-            text-decoration: none;
-            padding: 10px 15px;
-            border-radius: 5px;
-        }
+.navbar {
+    max-width: 1200px;
+    margin: auto;
+    padding: 18px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
-        nav a:hover {
-            background: #333;
-        }
+.logo {
+    font-size: 25px;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
 
-        .hero {
-            min-height: 450px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 40px 20px;
-            background: linear-gradient(135deg, #111, #222);
-        }
+.logo span {
+    color: #d71920;
+}
 
-        .hero h2 {
-            font-size: 45px;
-            margin-bottom: 15px;
-        }
+nav {
+    display: flex;
+    gap: 22px;
+}
 
-        .hero p {
-            max-width: 650px;
-            margin: auto;
-            color: #ccc;
-            font-size: 18px;
-            line-height: 1.6;
-        }
+nav a {
+    color: #ddd;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+}
 
-        .button {
-            display: inline-block;
-            margin-top: 25px;
-            padding: 14px 25px;
-            background: white;
-            color: black;
-            text-decoration: none;
-            font-weight: bold;
-            border-radius: 6px;
-        }
+nav a:hover {
+    color: #d71920;
+}
 
-        section {
-            padding: 60px 20px;
-            max-width: 1100px;
-            margin: auto;
-        }
+/* HERO */
 
-        section h2 {
-            text-align: center;
-            font-size: 32px;
-            margin-bottom: 35px;
-        }
+.hero {
+    min-height: 650px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 60px 20px;
 
-        .cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 20px;
-        }
+    background:
+        linear-gradient(rgba(0,0,0,.68), rgba(0,0,0,.88)),
+        url("https://images.unsplash.com/photo-1555597673-b21d5c935865?auto=format&fit=crop&w=1800&q=80");
 
-        .card {
-            background: #171717;
-            padding: 25px;
-            border-radius: 10px;
-            border: 1px solid #333;
-        }
+    background-size: cover;
+    background-position: center;
+}
 
-        .card h3 {
-            margin-bottom: 12px;
-        }
+.hero-content {
+    max-width: 850px;
+}
 
-        .card p {
-            color: #bbb;
-            line-height: 1.5;
-        }
+.hero h1 {
+    font-size: clamp(45px, 8vw, 85px);
+    line-height: 1;
+    font-weight: 900;
+    letter-spacing: 3px;
+}
 
-        footer {
-            text-align: center;
-            padding: 30px;
-            background: #111;
-            color: #888;
-            margin-top: 30px;
-        }
-    </style>
+.hero h1 span {
+    color: #d71920;
+}
+
+.hero p {
+    margin: 25px auto;
+    max-width: 700px;
+    color: #ddd;
+    font-size: 18px;
+}
+
+.button {
+    display: inline-block;
+    background: #d71920;
+    color: white;
+    padding: 14px 28px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    margin: 8px;
+}
+
+.button:hover {
+    background: #a90f15;
+}
+
+/* SECTIONS */
+
+section {
+    max-width: 1200px;
+    margin: auto;
+    padding: 80px 25px;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.section-title h2 {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+.section-title p {
+    color: #999;
+}
+
+/* CARDS */
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 22px;
+}
+
+.card {
+    background: #141414;
+    border: 1px solid #292929;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: .25s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    border-color: #d71920;
+}
+
+.card-image {
+    width: 100%;
+    height: 210px;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 23px;
+}
+
+.card h3 {
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.card p {
+    color: #aaa;
+}
+
+/* BJJ */
+
+.bjj-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 45px;
+    align-items: center;
+}
+
+.bjj-info img {
+    width: 100%;
+    border-radius: 12px;
+}
+
+.bjj-info h3 {
+    font-size: 32px;
+    margin-bottom: 15px;
+}
+
+.bjj-info p {
+    color: #bbb;
+    margin-bottom: 15px;
+}
+
+/* TECHNIQUES */
+
+.technique {
+    min-height: 100%;
+}
+
+/* TRAINING */
+
+.training-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.training-item {
+    background: #111;
+    border-left: 4px solid #d71920;
+    padding: 25px;
+}
+
+.training-item h3 {
+    margin-bottom: 10px;
+}
+
+.training-item p {
+    color: #aaa;
+}
+
+/* MMA */
+
+.mma {
+    background: #101010;
+    max-width: none;
+}
+
+.mma-inner {
+    max-width: 1200px;
+    margin: auto;
+    padding: 80px 25px;
+}
+
+.mma-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 45px;
+    align-items: center;
+}
+
+.mma img {
+    width: 100%;
+    border-radius: 12px;
+}
+
+/* FIGHTERS */
+
+.fighter img {
+    height: 300px;
+}
+
+/* NEWS */
+
+.news-date {
+    color: #d71920;
+    font-size: 13px;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+/* CONTACT */
+
+.contact {
+    text-align: center;
+}
+
+.contact-box {
+    max-width: 700px;
+    margin: auto;
+    background: #141414;
+    border: 1px solid #292929;
+    padding: 40px;
+    border-radius: 10px;
+}
+
+.contact-box p {
+    color: #aaa;
+    margin: 10px 0 20px;
+}
+
+/* FOOTER */
+
+footer {
+    background: #050505;
+    border-top: 1px solid #222;
+    text-align: center;
+    padding: 40px 20px;
+    color: #777;
+}
+
+footer strong {
+    color: white;
+}
+
+/* MOBILE */
+
+@media (max-width: 800px) {
+
+    .navbar {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    nav {
+        gap: 12px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .hero {
+        min-height: 550px;
+    }
+
+    .bjj-info,
+    .mma-content {
+        grid-template-columns: 1fr;
+    }
+
+    section {
+        padding: 60px 20px;
+    }
+
+    .section-title h2 {
+        font-size: 32px;
+    }
+}
+</style>
 </head>
 
 <body>
 
+<!-- HEADER -->
+
 <header>
-    <h1>🥋 BJJ-FIGHTER</h1>
-    <p>Todo sobre Brazilian Jiu-Jitsu y MMA</p>
+    <div class="navbar">
+
+        <div class="logo">
+            BJJ<span>-FIGHTER</span>
+        </div>
+
+        <nav>
+            <a href="#inicio">Inicio</a>
+            <a href="#bjj">BJJ</a>
+            <a href="#tecnicas">Técnicas</a>
+            <a href="#entrenamiento">Entrenamiento</a>
+            <a href="#mma">MMA</a>
+            <a href="#peleadores">Peleadores</a>
+            <a href="#noticias">Noticias</a>
+        </nav>
+
+    </div>
 </header>
 
-<nav>
-    <a href="#inicio">Inicio</a>
-    <a href="#bjj">BJJ</a>
-    <a href="#tecnicas">Técnicas</a>
-    <a href="#entrenamiento">Entrenamiento</a>
-    <a href="#mma">MMA</a>
-</nav>
 
-<div class="hero" id="inicio">
-    <div>
-        <h2>WELCOME TO BJJ-FIGHTER</h2>
+<!-- HERO -->
+
+<section class="hero" id="inicio">
+
+    <div class="hero-content">
+
+        <h1>
+            BJJ<span>-FIGHTER</span>
+        </h1>
+
         <p>
-            Aprende sobre Brazilian Jiu-Jitsu, técnicas de grappling,
-            entrenamiento y MMA. Una web creada para los amantes de los deportes de combate.
+            Todo sobre Brazilian Jiu-Jitsu, Grappling y MMA.
+            Técnicas, entrenamiento, peleadores y actualidad del mundo de los deportes de combate.
         </p>
-        <a class="button" href="#bjj">EMPEZAR</a>
+
+        <a href="#bjj" class="button">DESCUBRIR BJJ</a>
+
+        <a href="#tecnicas" class="button">VER TÉCNICAS</a>
+
     </div>
-</div>
+
+</section>
+
+
+<!-- BJJ -->
 
 <section id="bjj">
-    <h2>¿Qué es el BJJ?</h2>
 
-    <div class="cards">
-        <div class="card">
-            <h3>🥋 Brazilian Jiu-Jitsu</h3>
-            <p>
-                Arte marcial centrado principalmente en la lucha,
-                los derribos, el control y las técnicas de sumisión.
-            </p>
-        </div>
-
-        <div class="card">
-            <h3>🤼 Grappling</h3>
-            <p>
-                Aprende a controlar a tu rival utilizando posiciones,
-                agarres, escapes y diferentes técnicas.
-            </p>
-        </div>
-
-        <div class="card">
-            <h3>🏆 Competición</h3>
-            <p>
-                Descubre cómo funcionan las competiciones,
-                categorías de peso, cinturones y reglas.
-            </p>
-        </div>
+    <div class="section-title">
+        <h2>🥋 Brazilian Jiu-Jitsu</h2>
+        <p>Conoce los fundamentos del BJJ</p>
     </div>
+
+    <div class="bjj-info">
+
+        <img
+        src="https://images.unsplash.com/photo-1599058917212-d750089bc07e?auto=format&fit=crop&w=1000&q=80"
+        alt="Brazilian Jiu-Jitsu">
+
+        <div>
+
+            <h3>El arte del combate en el suelo</h3>
+
+            <p>
+                El Brazilian Jiu-Jitsu es un arte marcial centrado principalmente
+                en la lucha cuerpo a cuerpo, los derribos, el control y las sumisiones.
+            </p>
+
+            <p>
+                El objetivo es utilizar la técnica, la posición y el control
+                para superar al rival incluso cuando existe una diferencia de fuerza.
+            </p>
+
+            <p>
+                El BJJ es también una de las disciplinas más importantes dentro
+                de las artes marciales mixtas.
+            </p>
+
+        </div>
+
+    </div>
+
 </section>
+
+
+<!-- TECHNIQUES -->
 
 <section id="tecnicas">
-    <h2>Técnicas</h2>
+
+    <div class="section-title">
+        <h2>🔥 Técnicas de BJJ</h2>
+        <p>Algunas de las técnicas más conocidas</p>
+    </div>
 
     <div class="cards">
-        <div class="card">
-            <h3>Armbar</h3>
-            <p>Una de las sumisiones más conocidas del BJJ.</p>
+
+        <div class="card technique">
+
+            <img
+            class="card-image"
+            src="https://images.unsplash.com/photo-1555597673-b21d5c935865?auto=format&fit=crop&w=900&q=80"
+            alt="Armbar">
+
+            <div class="card-content">
+
+                <h3>Armbar</h3>
+
+                <p>
+                    Una sumisión que utiliza el control del brazo
+                    para aplicar presión sobre la articulación del codo.
+                </p>
+
+            </div>
+
         </div>
 
-        <div class="card">
-            <h3>Rear Naked Choke</h3>
-            <p>Una de las técnicas de estrangulación más utilizadas en MMA.</p>
+
+        <div class="card technique">
+
+            <img
+            class="card-image"
+            src="https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?auto=format&fit=crop&w=900&q=80"
+            alt="Grappling">
+
+            <div class="card-content">
+
+                <h3>Triangle</h3>
+
+                <p>
+                    Técnica de estrangulación realizada utilizando
+                    las piernas para controlar el cuello y el brazo.
+                </p>
+
+            </div>
+
         </div>
 
-        <div class="card">
-            <h3>Triangle</h3>
-            <p>Sumisión realizada utilizando las piernas para controlar el cuello y el brazo.</p>
+
+        <div class="card technique">
+
+            <img
+            class="card-image"
+            src="https://images.unsplash.com/photo-1566241142559-40e1dab266c6?auto=format&fit=crop&w=900&q=80"
+            alt="Rear Naked Choke">
+
+            <div class="card-content">
+
+                <h3>Rear Naked Choke</h3>
+
+                <p>
+                    Una de las sumisiones más utilizadas desde
+                    la espalda y muy importante en MMA.
+                </p>
+
+            </div>
+
         </div>
 
-        <div class="card">
-            <h3>Guillotine</h3>
-            <p>Una sumisión que puede realizarse desde diferentes posiciones.</p>
+
+        <div class="card technique">
+
+            <img
+            class="card-image"
+            src="https://images.unsplash.com/photo-1574680178050-55c6a6a96e0a?auto=format&fit=crop&w=900&q=80"
+            alt="Guillotine">
+
+            <div class="card-content">
+
+                <h3>Guillotine</h3>
+
+                <p>
+                    Una sumisión que puede aparecer durante
+                    diferentes situaciones de grappling.
+                </p>
+
+            </div>
+
         </div>
+
     </div>
+
 </section>
+
+
+<!-- TRAINING -->
 
 <section id="entrenamiento">
-    <h2>Entrenamiento</h2>
 
-    <div class="cards">
-        <div class="card">
-            <h3>💪 Fuerza</h3>
-            <p>Mejora tu fuerza para tener un mejor rendimiento en el grappling.</p>
+    <div class="section-title">
+
+        <h2>💪 Entrenamiento</h2>
+
+        <p>
+            Construye las capacidades necesarias para mejorar como luchador
+        </p>
+
+    </div>
+
+
+    <div class="training-list">
+
+        <div class="training-item">
+
+            <h3>🏋️ Fuerza</h3>
+
+            <p>
+                Trabaja fuerza general, agarre, espalda, piernas y core.
+            </p>
+
         </div>
 
-        <div class="card">
+
+        <div class="training-item">
+
             <h3>⚡ Explosividad</h3>
-            <p>Trabaja movimientos rápidos y explosivos.</p>
+
+            <p>
+                Mejora la capacidad de realizar movimientos rápidos y potentes.
+            </p>
+
         </div>
 
-        <div class="card">
+
+        <div class="training-item">
+
             <h3>🫁 Resistencia</h3>
-            <p>Desarrolla tu capacidad para mantener un ritmo alto durante los combates.</p>
+
+            <p>
+                Desarrolla tu capacidad cardiovascular para mantener un ritmo alto.
+            </p>
+
         </div>
+
+
+        <div class="training-item">
+
+            <h3>🧘 Movilidad</h3>
+
+            <p>
+                Una buena movilidad ayuda a realizar posiciones y movimientos de grappling.
+            </p>
+
+        </div>
+
     </div>
+
 </section>
 
-<section id="mma">
-    <h2>BJJ en MMA</h2>
+
+<!-- MMA -->
+
+<div class="mma" id="mma">
+
+    <div class="mma-inner">
+
+        <div class="section-title">
+
+            <h2>🥊 BJJ en MMA</h2>
+
+            <p>
+                Grappling, striking y lucha
+            </p>
+
+        </div>
+
+
+        <div class="mma-content">
+
+            <img
+            src="https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?auto=format&fit=crop&w=1000&q=80"
+            alt="MMA">
+
+            <div>
+
+                <h3>Una parte fundamental de las MMA</h3>
+
+                <p>
+                    El Brazilian Jiu-Jitsu tiene un papel muy importante
+                    en las artes marciales mixtas.
+                </p>
+
+                <p>
+                    Un peleador necesita combinar striking, wrestling,
+                    grappling y BJJ para poder competir al máximo nivel.
+                </p>
+
+                <a href="#peleadores" class="button">
+                    VER PELEADORES
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- FIGHTERS -->
+
+<section id="peleadores">
+
+    <div class="section-title">
+
+        <h2>🏆 Peleadores destacados</h2>
+
+        <p>
+            Algunos de los nombres más conocidos de las MMA
+        </p>
+
+    </div>
+
 
     <div class="cards">
-        <div class="card">
-            <h3>🥊 Striking + Grappling</h3>
-            <p>
-                El BJJ es una parte importante de las MMA,
-                especialmente en el combate cuerpo a cuerpo y en el suelo.
-            </p>
+
+        <div class="card fighter">
+
+            <img
+            class="card-image"
+            src="https://images.unsplash.com/photo-1566241142559-40e1dab266c6?auto=format&fit=crop&w=900&q=80"
+            alt="Fighter">
+
+            <div class="card-content">
+
+                <h3>Ilia Topuria</h3>
+
+                <p>
+                    Peleador hispano-georgiano conocido por su boxeo,
+                    grappling y estilo agresivo.
+                </p>
+
+            </div>
+
         </div>
 
-        <div class="card">
-            <h3>🏆 Grandes luchadores</h3>
-            <p>
-                Muchos peleadores de MMA utilizan el Brazilian Jiu-Jitsu
-                como una parte fundamental de su estilo.
-            </p>
+
+        <div class="card fighter">
+
+            <img
+            class="card-image"
+            src="https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?auto=format&fit=crop&w=900&q=80"
+            alt="Fighter">
+
+            <div class="card-content">
+
+                <h3>Islam Makhachev</h3>
+
+                <p>
+                    Uno de los grandes especialistas en lucha y grappling
+                    del MMA moderno.
+                </p>
+
+            </div>
+
         </div>
+
+
+        <div class="card fighter">
+
+            <img
+            class="card-image"
+            src="https://images.unsplash.com/photo-1555597673-b21d5c935865?auto=format&fit=crop&w=900&q=80"
+            alt="Fighter">
+
+            <div class="card-content">
+
+                <h3>Demetrious Johnson</h3>
+
+                <p>
+                    Considerado uno de los peleadores más completos
+                    de la historia de las MMA.
+                </p>
+
+            </div>
+
+        </div>
+
     </div>
+
 </section>
+
+
+<!-- NEWS -->
+
+<section id="noticias">
+
+    <div class="section-title">
+
+        <h2>📰 Noticias</h2>
+
+        <p>
+            Próximamente podrás encontrar aquí las últimas novedades
+            del mundo del BJJ y las MMA.
+        </p>
+
+    </div>
+
+
+    <div class="cards">
+
+        <div class="card">
+
+            <div class="card-content">
+
+                <div class="news-date">
+                    BJJ-FIGHTER
+                </div>
+
+                <h3>Noticias de BJJ</h3>
+
+                <p>
+                    Próximamente añadiremos noticias,
+                    competiciones y eventos de Brazilian Jiu-Jitsu.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="card-content">
+
+                <div class="news-date">
+                    BJJ-FIGHTER
+                </div>
+
+                <h3>Noticias de MMA</h3>
+
+                <p>
+                    Próximamente encontrarás aquí actualidad
+                    de UFC y otras grandes organizaciones.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="card-content">
+
+                <div class="news-date">
+                    BJJ-FIGHTER
+                </div>
+
+                <h3>Próximos eventos</h3>
+
+                <p>
+                    Competiciones, eventos y grandes combates
+                    estarán disponibles próximamente.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- CONTACT -->
+
+<section class="contact">
+
+    <div class="section-title">
+
+        <h2>📩 Contacto</h2>
+
+        <p>
+            ¿Tienes alguna sugerencia para BJJ-Fighter?
+        </p>
+
+    </div>
+
+
+    <div class="contact-box">
+
+        <h3>Forma parte de BJJ-Fighter</h3>
+
+        <p>
+            Estamos construyendo una comunidad para todos los amantes
+            del Brazilian Jiu-Jitsu, Grappling y MMA.
+        </p>
+
+        <a href="mailto:bjjfighterweb@gmail.com" class="button">
+            CONTACTAR
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
 
 <footer>
-    <p>© 2026 BJJ-Fighter — Todos los derechos reservados</p>
+
+    <p>
+        © 2026 <strong>BJJ-Fighter</strong>
+    </p>
+
+    <p>
+        Brazilian Jiu-Jitsu • Grappling • MMA
+    </p>
+
 </footer>
 
 </body>
