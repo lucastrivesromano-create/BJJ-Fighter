@@ -1,645 +1,1097 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>BJJ-Fighter | Brazilian Jiu-Jitsu, Grappling y MMA</title>
+<title>BJJ Fighter | BJJ, Grappling y MMA</title>
 
-<meta name="description" content="BJJ-Fighter: guía de Brazilian Jiu-Jitsu, grappling y MMA. Técnicas, entrenamiento, reglas, peleadores y actualidad.">
-<meta name="keywords" content="BJJ, Brazilian Jiu-Jitsu, grappling, MMA, técnicas BJJ, entrenamiento BJJ">
-<meta name="author" content="BJJ-Fighter">
-  
-<link rel="canonical" href="https://lucastrivesromano-create.github.io/BJJ-Fighter/">
+<meta name="description" content="BJJ Fighter: técnicas de Brazilian Jiu-Jitsu, grappling, MMA, entrenamiento y luchadores.">
+<meta name="keywords" content="BJJ, Brazilian Jiu Jitsu, grappling, MMA, entrenamiento, técnicas BJJ">
+<meta name="author" content="Lucas Trives">
 
-<meta property="og:title" content="BJJ-Fighter | Brazilian Jiu-Jitsu, Grappling y MMA">
-<meta property="og:description" content="Aprende BJJ, grappling y MMA: técnicas, entrenamiento, reglas, peleadores y actualidad.">
+<meta property="og:title" content="BJJ Fighter">
+<meta property="og:description" content="BJJ, Grappling, MMA y entrenamiento.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://lucastrivesromano-create.github.io/BJJ-Fighter/">
+
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
+:root{
+  --bg:#080808;
+  --bg2:#101010;
+  --card:#151515;
+  --red:#e10600;
+  --red2:#ff2b20;
+  --white:#f5f5f5;
+  --gray:#a7a7a7;
+  --border:#272727;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
 body{
-font-family:Arial,sans-serif;
-background:#080808;
-color:#fff;
-line-height:1.6
+  font-family:Arial,Helvetica,sans-serif;
+  background:var(--bg);
+  color:var(--white);
+  line-height:1.6;
 }
-header{
-position:sticky;
-top:0;
-z-index:1000;
-background:#080808;
-border-bottom:1px solid #292929
+
+a{
+  color:inherit;
+  text-decoration:none;
 }
-.navbar{
-max-width:1200px;
-margin:auto;
-padding:18px 25px;
-display:flex;
-justify-content:space-between;
-align-items:center
+
+img{
+  width:100%;
+  display:block;
 }
-.logo{
-font-size:25px;
-font-weight:900;
-letter-spacing:2px
+
+.container{
+  width:min(1150px,92%);
+  margin:auto;
 }
-.logo span{color:#d71920}
+
+/* NAVBAR */
+
 nav{
-display:flex;
-gap:20px;
-flex-wrap:wrap;
-justify-content:center
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:rgba(8,8,8,.94);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--border);
 }
-nav a{
-color:#ddd;
-text-decoration:none;
-font-size:14px;
-font-weight:bold
+
+.nav-content{
+  min-height:70px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
 }
-nav a:hover{color:#d71920}
+
+.logo{
+  font-size:24px;
+  font-weight:900;
+  letter-spacing:1px;
+}
+
+.logo span{
+  color:var(--red);
+}
+
+.nav-links{
+  display:flex;
+  gap:24px;
+  list-style:none;
+}
+
+.nav-links a{
+  color:#ddd;
+  font-weight:bold;
+  font-size:14px;
+  transition:.2s;
+}
+
+.nav-links a:hover{
+  color:var(--red2);
+}
+
+/* HERO */
 
 .hero{
-min-height:650px;
-display:flex;
-align-items:center;
-justify-content:center;
-text-align:center;
-padding:60px 20px;
-background:
-linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.9)),
-url("https://images.unsplash.com/photo-1555597673-b21d5c935865?auto=format&fit=crop&w=1800&q=80");
-background-size:cover;
-background-position:center
+  min-height:680px;
+  display:flex;
+  align-items:center;
+  position:relative;
+  background:
+    linear-gradient(90deg,rgba(0,0,0,.92),rgba(0,0,0,.55),rgba(0,0,0,.8)),
+    url("https://images.unsplash.com/photo-1555597673-b21d5c935865?auto=format&fit=crop&w=1800&q=85")
+    center/cover;
 }
-.hero-content{max-width:850px}
+
+.hero-content{
+  max-width:750px;
+}
+
+.badge{
+  display:inline-block;
+  padding:8px 14px;
+  border:1px solid rgba(255,255,255,.25);
+  border-radius:30px;
+  background:rgba(255,255,255,.08);
+  font-size:13px;
+  font-weight:bold;
+  margin-bottom:22px;
+}
+
 .hero h1{
-font-size:clamp(45px,8vw,85px);
-line-height:1;
-font-weight:900;
-letter-spacing:3px
+  font-size:clamp(50px,9vw,95px);
+  line-height:.9;
+  text-transform:uppercase;
+  font-weight:1000;
+  margin-bottom:25px;
 }
-.hero h1 span{color:#d71920}
+
+.hero h1 span{
+  color:var(--red);
+}
+
 .hero p{
-margin:25px auto;
-max-width:700px;
-color:#ddd;
-font-size:18px
+  color:#ddd;
+  max-width:650px;
+  font-size:19px;
+  margin-bottom:32px;
 }
-.button{
-display:inline-block;
-background:#d71920;
-color:white;
-padding:14px 28px;
-border-radius:5px;
-text-decoration:none;
-font-weight:bold;
-margin:8px
+
+.buttons{
+  display:flex;
+  flex-wrap:wrap;
+  gap:14px;
 }
-.button:hover{background:#a90f15}
+
+.btn{
+  display:inline-block;
+  padding:14px 22px;
+  border-radius:6px;
+  font-weight:900;
+  text-transform:uppercase;
+  font-size:13px;
+  transition:.2s;
+}
+
+.btn-red{
+  background:var(--red);
+}
+
+.btn-red:hover{
+  background:var(--red2);
+  transform:translateY(-2px);
+}
+
+.btn-dark{
+  border:1px solid #555;
+  background:rgba(0,0,0,.45);
+}
+
+.btn-dark:hover{
+  border-color:white;
+}
+
+/* STATS */
+
+.stats{
+  background:var(--red);
+}
+
+.stats-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  text-align:center;
+}
+
+.stat{
+  padding:24px;
+  border-right:1px solid rgba(255,255,255,.2);
+}
+
+.stat:last-child{
+  border-right:0;
+}
+
+.stat strong{
+  display:block;
+  font-size:28px;
+}
+
+.stat span{
+  font-size:12px;
+  font-weight:bold;
+  opacity:.9;
+}
+
+/* SECTIONS */
 
 section{
-max-width:1200px;
-margin:auto;
-padding:80px 25px
+  padding:90px 0;
 }
-.section-title{
-text-align:center;
-margin-bottom:45px
-}
-.section-title h2{
-font-size:40px;
-margin-bottom:10px
-}
-.section-title p{color:#999}
 
-.cards{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-gap:22px
+.section-heading{
+  margin-bottom:45px;
 }
+
+.section-heading small{
+  color:var(--red2);
+  text-transform:uppercase;
+  font-weight:900;
+  letter-spacing:2px;
+}
+
+.section-heading h2{
+  font-size:clamp(34px,5vw,55px);
+  text-transform:uppercase;
+  line-height:1;
+  margin-top:8px;
+}
+
+.section-heading p{
+  color:var(--gray);
+  max-width:650px;
+  margin-top:15px;
+}
+
+/* CARDS */
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:22px;
+}
+
 .card{
-background:#141414;
-border:1px solid #292929;
-border-radius:10px;
-overflow:hidden;
-transition:.25s
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:10px;
+  overflow:hidden;
+  transition:.25s;
 }
-.card:hover{
-transform:translateY(-5px);
-border-color:#d71920
-}
-.card-image{
-width:100%;
-height:220px;
-object-fit:cover
-}
-.card-content{padding:23px}
-.card h3{
-font-size:22px;
-margin-bottom:10px
-}
-.card p{color:#aaa}
 
-.info{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:45px;
-align-items:center
+.card:hover{
+  transform:translateY(-6px);
+  border-color:#444;
 }
-.info img{
-width:100%;
-border-radius:12px
+
+.card-image{
+  height:230px;
+  object-fit:cover;
 }
-.info h3{
-font-size:32px;
-margin-bottom:15px
+
+.card-body{
+  padding:22px;
 }
-.info p{
-color:#bbb;
-margin-bottom:15px
+
+.card-body h3{
+  font-size:22px;
+  margin-bottom:8px;
 }
+
+.card-body p{
+  color:var(--gray);
+  font-size:15px;
+}
+
+.tag{
+  display:inline-block;
+  margin-bottom:12px;
+  padding:5px 9px;
+  border-radius:4px;
+  background:rgba(225,6,0,.15);
+  color:#ff554d;
+  font-size:11px;
+  font-weight:bold;
+  text-transform:uppercase;
+}
+
+/* FEATURE */
+
+.feature{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:50px;
+  align-items:center;
+}
+
+.feature-image{
+  border-radius:12px;
+  overflow:hidden;
+  border:1px solid var(--border);
+}
+
+.feature-image img{
+  min-height:430px;
+  object-fit:cover;
+}
+
+.feature-text h2{
+  font-size:48px;
+  line-height:1;
+  margin-bottom:20px;
+}
+
+.feature-text p{
+  color:var(--gray);
+  margin-bottom:20px;
+}
+
+/* TRAINING */
 
 .training{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:20px
+  background:#0d0d0d;
 }
-.training-item{
-background:#111;
-border-left:4px solid #d71920;
-padding:25px
+
+.training-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:18px;
 }
-.training-item h3{margin-bottom:10px}
-.training-item p{color:#aaa}
+
+.training-card{
+  padding:28px 22px;
+  background:#151515;
+  border:1px solid var(--border);
+  border-radius:8px;
+}
+
+.training-card .number{
+  color:var(--red);
+  font-size:30px;
+  font-weight:900;
+}
+
+.training-card h3{
+  margin:8px 0;
+}
+
+.training-card p{
+  color:var(--gray);
+  font-size:14px;
+}
+
+/* MMA */
+
+.mma{
+  background:
+    linear-gradient(90deg,rgba(0,0,0,.95),rgba(0,0,0,.65)),
+    url("https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?auto=format&fit=crop&w=1800&q=85")
+    center/cover;
+  background-attachment:fixed;
+}
+
+.mma-content{
+  max-width:700px;
+}
+
+.mma h2{
+  font-size:clamp(40px,6vw,70px);
+  text-transform:uppercase;
+  line-height:.95;
+  margin-bottom:20px;
+}
+
+.mma p{
+  color:#ddd;
+  font-size:18px;
+}
+
+/* FIGHTERS */
+
+.fighter-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:22px;
+}
+
+.fighter{
+  position:relative;
+  min-height:420px;
+  border-radius:10px;
+  overflow:hidden;
+  background:#111;
+  border:1px solid var(--border);
+}
+
+.fighter img{
+  height:100%;
+  object-fit:cover;
+  transition:.4s;
+}
+
+.fighter:hover img{
+  transform:scale(1.05);
+}
+
+.fighter-info{
+  position:absolute;
+  bottom:0;
+  left:0;
+  right:0;
+  padding:60px 22px 22px;
+  background:linear-gradient(transparent,rgba(0,0,0,.95));
+}
+
+.fighter-info h3{
+  font-size:27px;
+}
+
+.fighter-info p{
+  color:#bbb;
+}
+
+/* RULES */
 
 .rules{
-background:#101010;
-max-width:none
-}
-.rules-inner{
-max-width:1200px;
-margin:auto;
-padding:80px 25px
+  background:#0d0d0d;
 }
 
-.news-date{
-color:#d71920;
-font-size:13px;
-font-weight:bold;
-margin-bottom:8px
+.rules-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:18px;
 }
 
-.contact{text-align:center}
-.contact-box{
-max-width:700px;
-margin:auto;
-background:#141414;
-border:1px solid #292929;
-padding:40px;
-border-radius:10px
+.rule{
+  padding:25px;
+  border-left:3px solid var(--red);
+  background:#151515;
 }
-.contact-box p{
-color:#aaa;
-margin:10px 0 20px
+
+.rule h3{
+  margin-bottom:8px;
 }
+
+.rule p{
+  color:var(--gray);
+  font-size:14px;
+}
+
+/* NEWS */
+
+.news-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:22px;
+}
+
+.news{
+  background:var(--card);
+  padding:25px;
+  border:1px solid var(--border);
+  border-radius:8px;
+}
+
+.news span{
+  color:var(--red2);
+  font-size:11px;
+  font-weight:bold;
+}
+
+.news h3{
+  margin:10px 0;
+}
+
+.news p{
+  color:var(--gray);
+}
+
+/* CONTACT */
+
+.contact{
+  text-align:center;
+  background:linear-gradient(135deg,#130000,#080808);
+}
+
+.contact h2{
+  font-size:45px;
+  margin-bottom:12px;
+}
+
+.contact p{
+  color:var(--gray);
+  margin-bottom:25px;
+}
+
+.email{
+  display:inline-block;
+  color:white;
+  font-weight:bold;
+  border-bottom:2px solid var(--red);
+  padding-bottom:5px;
+}
+
+/* FOOTER */
 
 footer{
-background:#050505;
-border-top:1px solid #222;
-text-align:center;
-padding:40px 20px;
-color:#777
+  padding:35px 0;
+  border-top:1px solid var(--border);
+  color:#777;
+  font-size:13px;
 }
-footer strong{color:white}
 
-@media(max-width:800px){
-.navbar{
-flex-direction:column;
-gap:15px
+.footer-content{
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+  flex-wrap:wrap;
 }
-nav{gap:12px}
-.hero{min-height:550px}
-.info{grid-template-columns:1fr}
-section{padding:60px 20px}
-.section-title h2{font-size:32px}
+
+.footer-links{
+  display:flex;
+  gap:18px;
+}
+
+.footer-links a:hover{
+  color:white;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:900px){
+
+  .nav-links{
+    display:none;
+  }
+
+  .grid,
+  .fighter-grid,
+  .news-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .training-grid,
+  .rules-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .feature{
+    grid-template-columns:1fr;
+  }
+
+}
+
+@media(max-width:600px){
+
+  section{
+    padding:65px 0;
+  }
+
+  .hero{
+    min-height:600px;
+  }
+
+  .hero p{
+    font-size:16px;
+  }
+
+  .stats-grid{
+    grid-template-columns:1fr;
+  }
+
+  .stat{
+    border-right:0;
+    border-bottom:1px solid rgba(255,255,255,.2);
+  }
+
+  .stat:last-child{
+    border-bottom:0;
+  }
+
+  .grid,
+  .fighter-grid,
+  .news-grid,
+  .training-grid,
+  .rules-grid{
+    grid-template-columns:1fr;
+  }
+
+  .feature-text h2{
+    font-size:38px;
+  }
+
+  .mma{
+    background-attachment:scroll;
+  }
+
+  .footer-content{
+    flex-direction:column;
+  }
 }
 </style>
 </head>
 
 <body>
 
-<header>
-<div class="navbar">
-
-<div class="logo">BJJ<span>-FIGHTER</span></div>
-
 <nav>
-<a href="#inicio">Inicio</a>
-<a href="#bjj">BJJ</a>
-<a href="#tecnicas">Técnicas</a>
-<a href="#entrenamiento">Entrenamiento</a>
-<a href="#mma">MMA</a>
-<a href="#peleadores">Peleadores</a>
-<a href="#reglas">Reglas</a>
-<a href="#noticias">Noticias</a>
+  <div class="container nav-content">
+    <a href="#" class="logo">BJJ<span>FIGHTER</span></a>
+
+    <ul class="nav-links">
+      <li><a href="#bjj">BJJ</a></li>
+      <li><a href="#tecnicas">TÉCNICAS</a></li>
+      <li><a href="#entrenamiento">ENTRENAMIENTO</a></li>
+      <li><a href="#mma">MMA</a></li>
+      <li><a href="#luchadores">LUCHADORES</a></li>
+    </ul>
+  </div>
 </nav>
 
-</div>
+<header class="hero">
+  <div class="container hero-content">
+
+    <span class="badge">BJJ • GRAPPLING • MMA</span>
+
+    <h1>
+      Entrena.<br>
+      <span>Lucha.</span><br>
+      Evoluciona.
+    </h1>
+
+    <p>
+      Todo sobre Brazilian Jiu-Jitsu, grappling, MMA,
+      técnicas de combate y preparación física.
+    </p>
+
+    <div class="buttons">
+      <a href="#tecnicas" class="btn btn-red">Ver técnicas</a>
+      <a href="#entrenamiento" class="btn btn-dark">Entrenar mejor</a>
+    </div>
+
+  </div>
 </header>
 
-<section class="hero" id="inicio">
+<div class="stats">
+  <div class="container stats-grid">
 
-<div class="hero-content">
+    <div class="stat">
+      <strong>BJJ</strong>
+      <span>Brazilian Jiu-Jitsu</span>
+    </div>
 
-<h1>BJJ<span>-FIGHTER</span></h1>
+    <div class="stat">
+      <strong>GRAPPLING</strong>
+      <span>Control y sumisiones</span>
+    </div>
 
-<p>
-Tu sitio sobre Brazilian Jiu-Jitsu, Grappling y MMA.
-Aprende técnicas, mejora tu entrenamiento y descubre el mundo de los deportes de combate.
-</p>
+    <div class="stat">
+      <strong>MMA</strong>
+      <span>Artes marciales mixtas</span>
+    </div>
 
-<a href="#bjj" class="button">DESCUBRIR BJJ</a>
-<a href="#tecnicas" class="button">TÉCNICAS</a>
-
+  </div>
 </div>
-</section>
 
 <section id="bjj">
+  <div class="container">
 
-<div class="section-title">
-<h2>🥋 Brazilian Jiu-Jitsu</h2>
-<p>Conoce los fundamentos del arte suave</p>
-</div>
+    <div class="section-heading">
+      <small>01 / DISCIPLINA</small>
+      <h2>Brazilian Jiu-Jitsu</h2>
 
-<div class="info">
+      <p>
+        El BJJ utiliza posiciones, controles, derribos y
+        sumisiones para dominar al rival, especialmente en el suelo.
+      </p>
+    </div>
 
-<img
-src="https://images.unsplash.com/photo-1599058917212-d750089bc07e?auto=format&fit=crop&w=1000&q=80"
-alt="Entrenamiento de Brazilian Jiu-Jitsu">
+    <div class="feature">
 
-<div>
+      <div class="feature-image">
+        <img
+          src="https://images.unsplash.com/photo-1606335543042-9c6b7e9b0e9b?auto=format&fit=crop&w=1200&q=85"
+          alt="Entrenamiento de Brazilian Jiu-Jitsu"
+          loading="lazy">
+      </div>
 
-<h3>El arte del combate en el suelo</h3>
+      <div class="feature-text">
 
-<p>
-El Brazilian Jiu-Jitsu es un arte marcial basado principalmente
-en el grappling, el control, los derribos y las sumisiones.
-</p>
+        <span class="tag">GRAPPLING</span>
 
-<p>
-La técnica y la posición permiten controlar al rival
-y buscar una finalización incluso frente a diferencias de fuerza.
-</p>
+        <h2>La técnica supera a la fuerza.</h2>
 
-<p>
-El BJJ también es una disciplina fundamental para muchos
-peleadores de MMA.
-</p>
+        <p>
+          El objetivo del BJJ es conseguir una posición dominante
+          y utilizar técnicas de control y sumisión para finalizar
+          el combate.
+        </p>
 
-</div>
+        <p>
+          Es una disciplina que desarrolla fuerza, resistencia,
+          movilidad, coordinación y capacidad estratégica.
+        </p>
 
-</div>
+        <a href="#tecnicas" class="btn btn-red">Aprender técnicas</a>
+
+      </div>
+
+    </div>
+
+  </div>
 </section>
 
 <section id="tecnicas">
+  <div class="container">
 
-<div class="section-title">
-<h2>🔥 Técnicas</h2>
-<p>Aprende algunas de las técnicas más conocidas</p>
-</div>
+    <div class="section-heading">
+      <small>02 / TÉCNICA</small>
+      <h2>Técnicas fundamentales</h2>
 
-<div class="cards">
+      <p>
+        Algunas de las sumisiones y posiciones más conocidas
+        del Brazilian Jiu-Jitsu.
+      </p>
+    </div>
 
-<div class="card">
-<img class="card-image"
-src="https://images.unsplash.com/photo-1555597673-b21d5c935865?auto=format&fit=crop&w=900&q=80"
-alt="Armbar BJJ">
-<div class="card-content">
-<h3>Armbar</h3>
-<p>
-Sumisión que utiliza el control del brazo para aplicar
-presión sobre la articulación del codo.
-</p>
-</div>
-</div>
+    <div class="grid">
 
-<div class="card">
-<img class="card-image"
-src="https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?auto=format&fit=crop&w=900&q=80"
-alt="Triangle BJJ">
-<div class="card-content">
-<h3>Triangle</h3>
-<p>
-Estrangulación realizada utilizando las piernas
-para controlar el cuello y el brazo.
-</p>
-</div>
-</div>
+      <article class="card">
 
-<div class="card">
-<img class="card-image"
-src="https://images.unsplash.com/photo-1566241142559-40e1dab266c6?auto=format&fit=crop&w=900&q=80"
-alt="Grappling">
-<div class="card-content">
-<h3>Rear Naked Choke</h3>
-<p>
-Una de las finalizaciones más conocidas desde
-la espalda y muy utilizada en MMA.
-</p>
-</div>
-</div>
+        <img
+          class="card-image"
+          src="https://images.unsplash.com/photo-1555597673-b21d5c935865?auto=format&fit=crop&w=900&q=80"
+          alt="Armbar BJJ"
+          loading="lazy">
 
-<div class="card">
-<img class="card-image"
-src="https://images.unsplash.com/photo-1574680178050-55c6a6a96e0a?auto=format&fit=crop&w=900&q=80"
-alt="Entrenamiento">
-<div class="card-content">
-<h3>Guillotine</h3>
-<p>
-Una sumisión que puede aparecer durante diferentes
-situaciones de grappling.
-</p>
-</div>
-</div>
+        <div class="card-body">
+          <span class="tag">SUMISIÓN</span>
+          <h3>Armbar</h3>
+          <p>
+            Control del brazo del rival utilizando las piernas
+            y aplicando presión sobre la articulación del codo.
+          </p>
+        </div>
 
-</div>
+      </article>
+
+      <article class="card">
+
+        <img
+          class="card-image"
+          src="https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?auto=format&fit=crop&w=900&q=80"
+          alt="Triangle BJJ"
+          loading="lazy">
+
+        <div class="card-body">
+          <span class="tag">SUMISIÓN</span>
+          <h3>Triangle</h3>
+          <p>
+            Técnica de estrangulación realizada con las piernas
+            alrededor del cuello y brazo del adversario.
+          </p>
+        </div>
+
+      </article>
+
+      <article class="card">
+
+        <img
+          class="card-image"
+          src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=900&q=80"
+          alt="Rear Naked Choke"
+          loading="lazy">
+
+        <div class="card-body">
+          <span class="tag">ESTRANGULACIÓN</span>
+          <h3>Rear Naked Choke</h3>
+          <p>
+            Una de las finalizaciones más conocidas del grappling
+            desde la espalda.
+          </p>
+        </div>
+
+      </article>
+
+      <article class="card">
+
+        <img
+          class="card-image"
+          src="https://images.unsplash.com/photo-1599058917212-d750089bc07e?auto=format&fit=crop&w=900&q=80"
+          alt="Guillotine"
+          loading="lazy">
+
+        <div class="card-body">
+          <span class="tag">SUMISIÓN</span>
+          <h3>Guillotine</h3>
+          <p>
+            Estrangulación aplicada principalmente cuando el rival
+            intenta entrar a las piernas.
+          </p>
+        </div>
+
+      </article>
+
+    </div>
+
+  </div>
 </section>
 
-<section id="entrenamiento">
+<section id="entrenamiento" class="training">
 
-<div class="section-title">
-<h2>💪 Entrenamiento</h2>
-<p>Capacidades importantes para mejorar como luchador</p>
-</div>
+  <div class="container">
 
-<div class="training">
+    <div class="section-heading">
+      <small>03 / PREPARACIÓN</small>
+      <h2>Entrena como un luchador</h2>
 
-<div class="training-item">
-<h3>🏋️ Fuerza</h3>
-<p>
-Trabaja fuerza general, agarre, espalda, piernas y core.
-</p>
-</div>
+      <p>
+        El rendimiento en BJJ y MMA necesita mucho más que técnica.
+      </p>
+    </div>
 
-<div class="training-item">
-<h3>⚡ Explosividad</h3>
-<p>
-Mejora la capacidad de realizar movimientos rápidos y potentes.
-</p>
-</div>
+    <div class="training-grid">
 
-<div class="training-item">
-<h3>🫁 Resistencia</h3>
-<p>
-Desarrolla tu capacidad cardiovascular para mantener
-un ritmo alto durante el entrenamiento.
-</p>
-</div>
+      <div class="training-card">
+        <div class="number">01</div>
+        <h3>Fuerza</h3>
+        <p>
+          Desarrolla fuerza máxima y fuerza específica para luchar.
+        </p>
+      </div>
 
-<div class="training-item">
-<h3>🧘 Movilidad</h3>
-<p>
-Una buena movilidad facilita muchas posiciones
-y movimientos de grappling.
-</p>
-</div>
+      <div class="training-card">
+        <div class="number">02</div>
+        <h3>Explosividad</h3>
+        <p>
+          Mejora la capacidad de realizar movimientos rápidos y potentes.
+        </p>
+      </div>
 
-</div>
+      <div class="training-card">
+        <div class="number">03</div>
+        <h3>Resistencia</h3>
+        <p>
+          Mantén un buen rendimiento durante todo el combate.
+        </p>
+      </div>
+
+      <div class="training-card">
+        <div class="number">04</div>
+        <h3>Movilidad</h3>
+        <p>
+          Mejora tus posiciones, desplazamientos y prevención de lesiones.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+
 </section>
 
-<div class="rules" id="mma">
+<section id="mma" class="mma">
 
-<div class="rules-inner">
+  <div class="container">
 
-<div class="section-title">
-<h2>🥊 BJJ + MMA</h2>
-<p>Dos disciplinas que pueden complementarse</p>
-</div>
+    <div class="mma-content">
 
-<div class="info">
+      <span class="tag">MMA</span>
 
-<img
-src="https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?auto=format&fit=crop&w=1000&q=80"
-alt="MMA">
+      <h2>
+        Donde todas<br>
+        las disciplinas<br>
+        se encuentran.
+      </h2>
 
-<div>
+      <p>
+        El MMA combina grappling, BJJ, lucha, boxeo,
+        kickboxing, Muay Thai y otras disciplinas para crear
+        un sistema completo de combate.
+      </p>
 
-<h3>Grappling dentro de las MMA</h3>
+    </div>
 
-<p>
-En MMA los peleadores combinan diferentes disciplinas:
-striking, wrestling, grappling y BJJ.
-</p>
+  </div>
 
-<p>
-El BJJ puede ser especialmente importante durante
-las fases de lucha y combate en el suelo.
-</p>
-
-<a href="#peleadores" class="button">PELEADORES</a>
-
-</div>
-
-</div>
-
-</div>
-</div>
-
-<section id="peleadores">
-
-<div class="section-title">
-<h2>🏆 Peleadores destacados</h2>
-<p>Algunos nombres importantes del mundo de las MMA</p>
-</div>
-
-<div class="cards">
-
-<div class="card">
-
-<img class="card-image"
-src="https://images.unsplash.com/photo-1566241142559-40e1dab266c6?auto=format&fit=crop&w=900&q=80"
-alt="Peleador">
-
-<div class="card-content">
-<h3>Ilia Topuria</h3>
-<p>
-Peleador hispano-georgiano conocido por su boxeo,
-potencia y grappling.
-</p>
-</div>
-
-</div>
-
-<div class="card">
-
-<img class="card-image"
-src="https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?auto=format&fit=crop&w=900&q=80"
-alt="Peleador">
-
-<div class="card-content">
-<h3>Islam Makhachev</h3>
-<p>
-Especialista en lucha y grappling y uno de los nombres
-más destacados de las MMA modernas.
-</p>
-</div>
-
-</div>
-
-<div class="card">
-
-<img class="card-image"
-src="https://images.unsplash.com/photo-1555597673-b21d5c935865?auto=format&fit=crop&w=900&q=80"
-alt="Peleador">
-
-<div class="card-content">
-<h3>Demetrious Johnson</h3>
-<p>
-Uno de los peleadores más completos y técnicos
-de la historia de las MMA.
-</p>
-</div>
-
-</div>
-
-</div>
 </section>
 
-<section id="reglas">
+<section id="luchadores">
 
-<div class="section-title">
-<h2>📖 Reglas y conceptos</h2>
-<p>Conceptos básicos para empezar a entender el BJJ</p>
-</div>
+  <div class="container">
 
-<div class="cards">
+    <div class="section-heading">
+      <small>04 / REFERENTES</small>
+      <h2>Luchadores</h2>
 
-<div class="card">
-<div class="card-content">
-<h3>Posición</h3>
-<p>
-En BJJ la posición es fundamental. El control permite
-buscar ataques y limitar las opciones del rival.
-</p>
-</div>
-</div>
+      <p>
+        Algunos de los grandes nombres que han marcado el mundo
+        de las artes marciales mixtas.
+      </p>
+    </div>
 
-<div class="card">
-<div class="card-content">
-<h3>Guardia</h3>
-<p>
-La guardia permite controlar al oponente utilizando
-las piernas y diferentes posiciones del cuerpo.
-</p>
-</div>
-</div>
+    <div class="fighter-grid">
 
-<div class="card">
-<div class="card-content">
-<h3>Sumisión</h3>
-<p>
-Una sumisión busca finalizar el combate mediante
-una técnica de estrangulación o control articular.
-</p>
-</div>
-</div>
+      <article class="fighter">
 
-<div class="card">
-<div class="card-content">
-<h3>Tap</h3>
-<p>
-El luchador puede hacer tap para señalar que abandona
-y detener la acción.
-</p>
-</div>
-</div>
+        <img
+          src="https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?auto=format&fit=crop&w=900&q=85"
+          alt="Ilia Topuria"
+          loading="lazy">
 
-</div>
+        <div class="fighter-info">
+          <h3>Ilia Topuria</h3>
+          <p>UFC • MMA</p>
+        </div>
+
+      </article>
+
+      <article class="fighter">
+
+        <img
+          src="https://images.unsplash.com/photo-1599058917212-d750089bc07e?auto=format&fit=crop&w=900&q=85"
+          alt="Islam Makhachev"
+          loading="lazy">
+
+        <div class="fighter-info">
+          <h3>Islam Makhachev</h3>
+          <p>UFC • Grappling</p>
+        </div>
+
+      </article>
+
+      <article class="fighter">
+
+        <img
+          src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=900&q=85"
+          alt="Demetrious Johnson"
+          loading="lazy">
+
+        <div class="fighter-info">
+          <h3>Demetrious Johnson</h3>
+          <p>MMA • BJJ • Wrestling</p>
+        </div>
+
+      </article>
+
+    </div>
+
+  </div>
+
 </section>
 
-<section id="noticias">
+<section class="rules">
 
-<div class="section-title">
-<h2>📰 Noticias</h2>
-<p>Actualidad de BJJ, Grappling y MMA</p>
-</div>
+  <div class="container">
 
-<div class="cards">
+    <div class="section-heading">
+      <small>05 / CONCEPTOS</small>
+      <h2>Conceptos del BJJ</h2>
+    </div>
 
-<div class="card">
-<div class="card-content">
-<div class="news-date">PRÓXIMAMENTE</div>
-<h3>Noticias de BJJ</h3>
-<p>
-Aquí añadiremos noticias y resultados de las principales
-competiciones de Brazilian Jiu-Jitsu.
-</p>
-</div>
-</div>
+    <div class="rules-grid">
 
-<div class="card">
-<div class="card-content">
-<div class="news-date">PRÓXIMAMENTE</div>
-<h3>Noticias de MMA</h3>
-<p>
-Actualidad, combates, eventos y protagonistas
-del mundo de las MMA.
-</p>
-</div>
-</div>
+      <div class="rule">
+        <h3>Posición</h3>
+        <p>
+          Conseguir una posición dominante antes de buscar la sumisión.
+        </p>
+      </div>
 
-<div class="card">
-<div class="card-content">
-<div class="news-date">PRÓXIMAMENTE</div>
-<h3>Próximos eventos</h3>
-<p>
-Calendario de competiciones y grandes eventos
-de deportes de combate.
-</p>
-</div>
-</div>
+      <div class="rule">
+        <h3>Guardia</h3>
+        <p>
+          Utilizar las piernas para controlar al rival desde el suelo.
+        </p>
+      </div>
 
-</div>
+      <div class="rule">
+        <h3>Sumisión</h3>
+        <p>
+          Técnica destinada a conseguir que el rival abandone el combate.
+        </p>
+      </div>
+
+      <div class="rule">
+        <h3>Tap</h3>
+        <p>
+          Señal utilizada para indicar que el luchador se rinde.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<section>
+
+  <div class="container">
+
+    <div class="section-heading">
+      <small>06 / BJJ FIGHTER</small>
+      <h2>Contenido</h2>
+
+      <p>
+        Próximamente añadiremos más técnicas, entrenamientos,
+        noticias y contenido de MMA.
+      </p>
+    </div>
+
+    <div class="news-grid">
+
+      <article class="news">
+        <span>PRÓXIMAMENTE</span>
+        <h3>Guía para empezar BJJ</h3>
+        <p>
+          Qué necesitas saber antes de comenzar a entrenar.
+        </p>
+      </article>
+
+      <article class="news">
+        <span>PRÓXIMAMENTE</span>
+        <h3>Preparación física</h3>
+        <p>
+          Cómo mejorar fuerza, resistencia y explosividad.
+        </p>
+      </article>
+
+      <article class="news">
+        <span>PRÓXIMAMENTE</span>
+        <h3>Grappling y MMA</h3>
+        <p>
+          Diferencias entre las principales disciplinas.
+        </p>
+      </article>
+
+    </div>
+
+  </div>
+
 </section>
 
 <section class="contact">
 
-<div class="section-title">
-<h2>📩 Contacto</h2>
-<p>¿Tienes una idea o sugerencia para BJJ-Fighter?</p>
-</div>
+  <div class="container">
 
-<div class="contact-box">
+    <h2>¿Hablamos?</h2>
 
-<h3>Construyamos la comunidad</h3>
+    <p>
+      Para contacto, sugerencias o colaboraciones:
+    </p>
 
-<p>
-BJJ-Fighter nace para reunir información útil
-para los amantes del BJJ, Grappling y MMA.
-</p>
+    <a
+      class="email"
+      href="mailto:lucastrivesromano@gmail.com">
+      lucastrivesromano@gmail.com
+    </a>
 
-<a href="mailto:lucastrivesromano@gmail.com" class="button">
-CONTACTAR
-</a>
-
-</div>
+  </div>
 
 </section>
 
 <footer>
 
-<p>© 2026 <strong>BJJ-Fighter</strong></p>
-<p>Brazilian Jiu-Jitsu • Grappling • MMA</p>
+  <div class="container footer-content">
 
-  <div style="margin-top:20px;">
-    <a href="aviso-legal.html">Aviso Legal</a> |
-    <a href="politica-privacidad.html">Política de Privacidad</a> |
-    <a href="politica-cookies.html">Política de Cookies</a>
-</div>
-  
+    <div>
+      © 2026 BJJ Fighter
+    </div>
+
+    <div class="footer-links">
+      <a href="aviso-legal.html">Aviso legal</a>
+      <a href="politica-privacidad.html">Privacidad</a>
+      <a href="politica-cookies.html">Cookies</a>
+    </div>
+
+  </div>
+
 </footer>
 
 </body>
-</html>
+  </html>
